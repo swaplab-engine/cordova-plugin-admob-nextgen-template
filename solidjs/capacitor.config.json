@@ -1,0 +1,12 @@
+{
+  "appId": "com.example.solidtest",
+  "appName": "SolidAdMob",
+  "webDir": "dist", 
+  "plugins": {
+    "AdMob": {
+      "APP_ID_ANDROID": "ca-app-pub-3940256099942544~3347511713",
+      "NEXT_GEN_SDK_VERSION": "23.0.0",
+      "UMP_VERSION": "2.1.0"
+    }
+  }
+}

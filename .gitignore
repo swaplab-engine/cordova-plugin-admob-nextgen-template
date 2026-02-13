@@ -1,0 +1,65 @@
+# Build & Output
+/dist
+/lib
+/lib-types
+/server
+/build
+
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Environment Variables (IMPORTANT: Keep these ignored for security)
+.env
+.env.local
+.env.*.local
+*.local
+
+# Cache & Logs
+.cache
+.mf
+.rollup.cache
+tsconfig.tsbuildinfo
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor & OS Files
+.vscode/*
+!.vscode/launch.json
+!.vscode/*.code-snippets
+.idea
+.DS_Store
+*.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+Thumbs.db
+
+# Yarn
+.yarn/*
+!.yarn/releases
+
+# --- SWAPLAB TEMPLATE SPECIFIC ---
+
+# 1. Ignore Native Platforms
+# We keep the repo clean. These folders will be auto-generated 
+# by the SwapLab Build Engine or when the user runs 'npx cap add android'.
+*android
+android/
+ios/
+
+# 2. Ignore Capacitor Artifacts
+capacitor.config.json.timestamp-*
+
+# 3. Ignore Archives
+# Prevent accidental commit of manual upload files (e.g., upload.zip)
+*.zip
+*.tar.gz
