@@ -1,9 +1,5 @@
-import dynamic from 'next/dynamic';
-
-const App = dynamic(() => import('../components/AppShell'), {
-  ssr: false,
-});
+import AppClient from '../components/AppClient';
 
 export default function Page() {
-  return <App />;
+  return <AppClient />;
 }
