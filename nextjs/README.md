@@ -73,6 +73,7 @@ Set `webDir` to **"out"** (since we are using Next.js static export) and add you
   "plugins": {
     "AdMob": {
       "APP_ID_ANDROID": "ca-app-pub-3940256099942544~3347511713",
+      "APP_ID_IOS": "ca-app-pub-3940256099942544~1458002511",
       "NEXT_GEN_SDK_VERSION": "0.23.0-beta01",
       "UMP_VERSION": "4.0.0"
     }
@@ -91,7 +92,7 @@ Follow these steps carefully to initialize the Android platform.
 Install the Capacitor Android core and add the platform folder:
 
 ```bash
-npm install @capacitor/android@7.1.0
+npm install @capacitor/android@7.5.0
 npx cap add android
 ```
 

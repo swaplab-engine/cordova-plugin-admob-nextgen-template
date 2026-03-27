@@ -34,6 +34,6 @@
     "@capacitor/android": "^7.5.0",
     "@capacitor/core": "^7.4.4",
     "@capacitor/ios": "^7.4.4",
-    "cordova-plugin-admob-nextgen": "^1.0.0"
+    "cordova-plugin-admob-nextgen": "^1.0.2"
   }
 }
