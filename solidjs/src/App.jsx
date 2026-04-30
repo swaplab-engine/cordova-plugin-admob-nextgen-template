@@ -33,9 +33,9 @@ function App() {
     setupEventListeners();
 
     AdMob.setRequestConfiguration({
-      maxAdContentRating: "G",
-      tagForChildDirectedTreatment: false,
-      tagForUnderAgeOfConsent: false,
+      maxAdContentRating: 'G',  // 'G' | 'PG' | 'T' | 'MA' | ""
+      tagForChildDirectedTreatment: false, // true | false | null
+      tagForUnderAgeOfConsent: false, // true | false | null
     });
 
     setStatus("Requesting Consent...");
@@ -111,12 +111,13 @@ function App() {
   // 1. BANNER (PUSH CONTENT MODE)
   const showBanner = () => {
     window.admobNextGen.createBanner({
-      adUnitId: "ca-app-pub-3940256099942544/6300978111",
-      position: "bottom",
-      size: "ADAPTIVE",
-      isAutoShow: true,
-      isOverlapping: false, // <--- KEY FEATURE: Pushes content up
-      collapsible: false, // Test true adUnitId: "ca-app-pub-3940256099942544/9214589741"
+      adUnitId: 'ca-app-pub-3940256099942544/9214589741',
+      position: 'bottom',       // 'top' or 'bottom'
+      size: 'ADAPTIVE',         // 'BANNER', 'LARGE_BANNER', 'MEDIUM_RECTANGLE', 'ADAPTIVE', 'FULL_BANNER', 'LEADERBOARD'
+      isOverlapping: false,     // true = Overlay, false = Push Webview
+      collapsible: false,        // true = Enable Collapsible Format (High Revenue)
+      retryInterval: 5000,      // Anti-spam delay (ms)
+      isAutoShow: true
     });
     addLog("Requesting Banner (Push Mode)...");
   };

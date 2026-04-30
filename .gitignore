@@ -4,11 +4,13 @@
 /lib-types
 /server
 /build
+*gradle
 
 # Dependencies
 node_modules
 *package-lock.json
 package-lock.json
+**/package-lock.json
 .pnp
 .pnp.js
 

@@ -134,16 +134,14 @@ export const AdMobPanel = component$(() => {
         return;
       }
 
-      AdMob.setRequestConfiguration({
-        maxAdContentRating: 'G',
-        tagForChildDirectedTreatment: false,
-        tagForUnderAgeOfConsent: false,
-      });
-
       addLog("Requesting Consent...");
       AdMob.requestConsentInfo({ debug: true, testDeviceIds: [], reset: false },
         () => {
-          AdMob.initialize(() => {
+          AdMob.initialize({
+                maxAdContentRating: 'G',  // 'G' | 'PG' | 'T' | 'MA' | ""
+                tagForChildDirectedTreatment: false, // true | false | null
+                tagForUnderAgeOfConsent: false // true | false | null
+            }, () => {
             addLog("✅ SDK INITIALIZED");
             state.isReady = true;
           }, (err: any) => addLog(`Init Failed: ${err}`));

@@ -1,6 +1,7 @@
 {
   "name": "my-qwik-empty-starter",
   "description": "Blank project with routing included",
+  "version": "1.0.1",
   "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
   "private": true,
   "type": "module",
@@ -27,13 +28,13 @@
     "typescript-eslint": "8.38.0",
     "typescript-plugin-css-modules": "latest",
     "undici": "*",
-    "vite": "7.1.11",
+    "vite": "^7.3.2",
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
     "@capacitor/android": "^7.5.0",
     "@capacitor/core": "^7.4.4",
     "@capacitor/ios": "^7.4.4",
-    "cordova-plugin-admob-nextgen": "^1.0.0"
+    "cordova-plugin-admob-nextgen": "^1.0.9"
   }
 }

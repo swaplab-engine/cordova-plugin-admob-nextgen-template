@@ -1,2 +1,7 @@
 node_modules
 dist
+android/
+ios/
+*package-lock.json
+package-lock.json
+**/package-lock.json

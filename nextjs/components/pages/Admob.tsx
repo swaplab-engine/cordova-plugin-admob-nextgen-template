@@ -45,9 +45,9 @@ const Admob = () => {
 
       // 1. Global Configuration
       AdMob.setRequestConfiguration({
-        maxAdContentRating: 'G',
-        tagForChildDirectedTreatment: false,
-        tagForUnderAgeOfConsent: false,
+        maxAdContentRating: 'G',  // 'G' | 'PG' | 'T' | 'MA' | ""
+        tagForChildDirectedTreatment: false, // true | false | null
+        tagForUnderAgeOfConsent: false, // true | false | null
       });
 
       // 2. Request Consent (UMP) & Initialize
@@ -99,19 +99,13 @@ const Admob = () => {
 
   const showBanner = () => {
     window.admobNextGen?.createBanner({
-      adUnitId: 'ca-app-pub-3940256099942544/6300978111', // Standard Test ID
-      position: 'bottom', // 'top' or 'bottom'
-      size: 'ADAPTIVE', // Best practice for banners
-      
-      // IMPORTANT POLICY NOTE:
-      // Keep isOverlapping: false to push the webview content up/down.
-      // Setting this to true (overlay) increases the risk of accidental clicks 
-      // and policy violations if content is covered.
-      isOverlapping: false, 
-      
-      collapsible: false, // Set true + use ID ca-app-pub-3940256099942544/9214589741 for collapsible test
-      retryInterval: 5000,
-      isAutoShow: true,
+      adUnitId: 'ca-app-pub-3940256099942544/9214589741',
+      position: 'bottom',       // 'top' or 'bottom'
+      size: 'ADAPTIVE',         // 'BANNER', 'LARGE_BANNER', 'MEDIUM_RECTANGLE', 'ADAPTIVE', 'FULL_BANNER', 'LEADERBOARD'
+      isOverlapping: false,     // true = Overlay, false = Push Webview
+      collapsible: false,        // true = Enable Collapsible Format (High Revenue)
+      retryInterval: 5000,      // Anti-spam delay (ms)
+      isAutoShow: true
     });
     addLog('Action: Show Banner');
   };

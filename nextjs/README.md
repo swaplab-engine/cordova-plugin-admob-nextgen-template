@@ -73,7 +73,7 @@ Set `webDir` to **"out"** (since we are using Next.js static export) and add you
   "plugins": {
     "AdMob": {
       "APP_ID_ANDROID": "ca-app-pub-3940256099942544~3347511713",
-      "NEXT_GEN_SDK_VERSION": "0.23.0-beta01",
+      "NEXT_GEN_SDK_VERSION": "1.0.0",
       "UMP_VERSION": "4.0.0"
     }
   }
@@ -149,18 +149,15 @@ const Admob = () => {
         return;
       }
 
-      // 1. Config
-      AdMob.setRequestConfiguration({
-        maxAdContentRating: 'G',
-        tagForChildDirectedTreatment: false,
-        tagForUnderAgeOfConsent: false,
-      });
-
-      // 2. Consent & Init
+      // 1. Consent & Init
       addLog('Requesting Consent...');
       AdMob.requestConsentInfo({ debug: true, testDeviceIds: [], reset: false },
         () => {
-          AdMob.initialize(() => {
+          AdMob.initialize({
+                maxAdContentRating: 'G',  // 'G' | 'PG' | 'T' | 'MA' | ""
+                tagForChildDirectedTreatment: false, // true | false | null
+                tagForUnderAgeOfConsent: false // true | false | null
+            },() => {
               addLog('✅ SDK INITIALIZED');
               setIsReady(true);
             },

@@ -34,9 +34,9 @@ export const AdMobPanel = component$(() => {
 
       // 1. Configuration
       AdMob.setRequestConfiguration({
-        maxAdContentRating: 'G',
-        tagForChildDirectedTreatment: false,
-        tagForUnderAgeOfConsent: false,
+        maxAdContentRating: 'G',  // 'G' | 'PG' | 'T' | 'MA' | ""
+        tagForChildDirectedTreatment: false, // true | false | null
+        tagForUnderAgeOfConsent: false, // true | false | null
       });
 
       // 2. Request Consent & Init
@@ -76,10 +76,12 @@ export const AdMobPanel = component$(() => {
   
   const showBanner = $(() => {
     window.admobNextGen?.createBanner({
-      adUnitId: 'ca-app-pub-3940256099942544/6300978111',
-      position: 'bottom',
-      size: 'ADAPTIVE',
-      isOverlapping: false, // PUSH content up (Safe Mode)
+      adUnitId: 'ca-app-pub-3940256099942544/9214589741',
+      position: 'bottom',       // 'top' or 'bottom'
+      size: 'ADAPTIVE',         // 'BANNER', 'LARGE_BANNER', 'MEDIUM_RECTANGLE', 'ADAPTIVE', 'FULL_BANNER', 'LEADERBOARD'
+      isOverlapping: false,     // true = Overlay, false = Push Webview
+      collapsible: false,        // true = Enable Collapsible Format (High Revenue)
+      retryInterval: 5000,      // Anti-spam delay (ms)
       isAutoShow: true
     });
     addLog("Action: Show Banner");
