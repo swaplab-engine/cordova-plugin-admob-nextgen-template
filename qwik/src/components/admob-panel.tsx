@@ -43,7 +43,11 @@ export const AdMobPanel = component$(() => {
       addLog("Requesting Consent...");
       
       AdMob.requestConsentInfo(
-        { debug: true, testDeviceIds: [], reset: false },
+        { 
+          debug: true, 
+          reset: false,
+          tagForUnderAgeOfConsent: false
+         },
         () => {
           // Consent OK
           AdMob.initialize(() => {

@@ -53,7 +53,11 @@ const Admob = () => {
       // 2. Request Consent (UMP) & Initialize
       addLog('Requesting Consent...');
       AdMob.requestConsentInfo(
-        { debug: true, testDeviceIds: [], reset: false },
+        { 
+          debug: true, 
+          reset: false,
+          tagForUnderAgeOfConsent: false
+         },
         () => {
           // Consent OK -> Init SDK
           AdMob.initialize(

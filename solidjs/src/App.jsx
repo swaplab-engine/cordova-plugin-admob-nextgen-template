@@ -40,11 +40,11 @@ function App() {
 
     setStatus("Requesting Consent...");
     AdMob.requestConsentInfo(
-      {
-        debug: true,
-        testDeviceIds: [],
-        reset: false,
-      },
+      { 
+          debug: true, 
+          reset: false,
+          tagForUnderAgeOfConsent: false
+         },
       () => {
         addLog("Consent Info Ready.");
         initSdk(AdMob);
