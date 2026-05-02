@@ -6,9 +6,10 @@ Choose your preferred framework below to get started immediately.
 
 ## ☁️ Cloud Build (Quick Test)
 
-Don't want to install Android Studio? All templates in this repository are **Cloud Build Ready**. You can build the APK instantly using our public build service.
+---
+> Fastest test (APK Debug): **[⚡ With github action ](https://github.com/swaplab-engine/cordova-plugin-admob-nextgen/discussions/4)** (Optional)
+---
 
-👉 **Build Online:** [https://public.swaplab.net](https://public.swaplab.net)
 
 ## 📂 Available Templates
 
