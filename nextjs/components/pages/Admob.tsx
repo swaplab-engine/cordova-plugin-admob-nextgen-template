@@ -43,24 +43,21 @@ const Admob = () => {
         return;
       }
 
-      // 1. Global Configuration
-      AdMob.setRequestConfiguration({
-        maxAdContentRating: 'G',  // 'G' | 'PG' | 'T' | 'MA' | ""
-        tagForChildDirectedTreatment: false, // true | false | null
-        tagForUnderAgeOfConsent: false, // true | false | null
-      });
-
-      // 2. Request Consent (UMP) & Initialize
+      // 1. Request Consent (UMP) & Configuration & Initialize
       addLog('Requesting Consent...');
       AdMob.requestConsentInfo(
         { 
-          debug: true, 
-          reset: false,
-          tagForUnderAgeOfConsent: false
+          debug: true, // true | false | Default/Production: false
+          reset: false, // true | false | Default/Production: false
+          tagForUnderAgeOfConsent: false // true | false | Default: false
          },
         () => {
           // Consent OK -> Init SDK
-          AdMob.initialize(
+          AdMob.initialize({
+              maxAdContentRating: "", // 'G' | 'PG' | 'T' | 'MA' | Default: ""
+              tagForChildDirectedTreatment: false, // true | false | Default: null
+              tagForUnderAgeOfConsent: false, // true | false | Default: null
+            },
             () => {
               addLog('✅ SDK INITIALIZED');
               setIsReady(true);
@@ -72,7 +69,11 @@ const Admob = () => {
         (err: any) => {
           // Consent Failed -> Proceed anyway (e.g. no internet)
           addLog('Consent Error (Proceeding anyway): ' + JSON.stringify(err));
-          AdMob.initialize(
+          AdMob.initialize({
+              maxAdContentRating: "", // 'G' | 'PG' | 'T' | 'MA' | Default: ""
+              tagForChildDirectedTreatment: false, // true | false | Default: null
+              tagForUnderAgeOfConsent: false, // true | false | Default: null
+            },
             () => {
               setIsReady(true);
               setupEvents();
@@ -99,6 +100,8 @@ const Admob = () => {
     return () => document.removeEventListener('deviceready', onDeviceReady);
   }, []);
 
+  // Complete API method/Event: https://github.com/swaplab-engine/cordova-plugin-admob-nextgen/tree/main/simple-example/www/js
+
   // --- AD FUNCTIONS ---
 
   const showBanner = () => {
@@ -107,8 +110,8 @@ const Admob = () => {
       position: 'bottom',       // 'top' or 'bottom'
       size: 'ADAPTIVE',         // 'BANNER', 'LARGE_BANNER', 'MEDIUM_RECTANGLE', 'ADAPTIVE', 'FULL_BANNER', 'LEADERBOARD'
       isOverlapping: false,     // true = Overlay, false = Push Webview
-      collapsible: false,        // true = Enable Collapsible Format (High Revenue)
-      retryInterval: 5000,      // Anti-spam delay (ms)
+      collapsible: false,       // true = Enable Collapsible Format (High Revenue)
+      retryInterval: 5000,      // optional: Anti-spam delay (ms) Disable: 0
       isAutoShow: true
     });
     addLog('Action: Show Banner');
@@ -123,6 +126,7 @@ const Admob = () => {
     window.admobNextGen?.createInterstitial({
       adUnitId: 'ca-app-pub-3940256099942544/1033173712',
       isAutoShow: true,
+      retryInterval: 5000,      // optional: Anti-spam delay (ms) Disable: 0
     });
     addLog('Action: Show Interstitial');
   };
@@ -131,6 +135,7 @@ const Admob = () => {
     window.admobNextGen?.createRewarded({
       adUnitId: 'ca-app-pub-3940256099942544/5224354917',
       isAutoShow: true,
+      retryInterval: 5000,      // optional: Anti-spam delay (ms) Disable: 0
     });
     addLog('Action: Show Rewarded');
   };
@@ -141,6 +146,7 @@ const Admob = () => {
     window.admobNextGen?.loadAppOpenAd({
       adUnitId: 'ca-app-pub-3940256099942544/9257395921', // Correct App Open Test ID
       isAutoShow: true,
+      retryInterval: 5000,      // optional: Anti-spam delay (ms) Disable: 0
     });
     addLog('Action: Load App Open');
   };
@@ -152,6 +158,7 @@ const Admob = () => {
       adUnitId: 'ca-app-pub-3940256099942544/2247696110',
       view: 'banner_top', 
       isOverlapping: false, 
+      retryInterval: 5000,      // optional: Anti-spam delay (ms) Disable: 0
     });
     addLog('Action: Show Native (Top Fixed)');
   };

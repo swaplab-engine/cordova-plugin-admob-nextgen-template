@@ -32,19 +32,13 @@ function App() {
 
     setupEventListeners();
 
-    AdMob.setRequestConfiguration({
-      maxAdContentRating: 'G',  // 'G' | 'PG' | 'T' | 'MA' | ""
-      tagForChildDirectedTreatment: false, // true | false | null
-      tagForUnderAgeOfConsent: false, // true | false | null
-    });
-
     setStatus("Requesting Consent...");
     AdMob.requestConsentInfo(
       { 
-          debug: true, 
-          reset: false,
-          tagForUnderAgeOfConsent: false
-         },
+          debug: true, // true | false | Default/Production: false
+          reset: false, // true | false | Default/Production: false
+          tagForUnderAgeOfConsent: false // true | false | Default: false
+      },
       () => {
         addLog("Consent Info Ready.");
         initSdk(AdMob);
@@ -58,7 +52,11 @@ function App() {
 
   const initSdk = (AdMob) => {
     setStatus("Initializing SDK...");
-    AdMob.initialize(
+    AdMob.initialize({
+      maxAdContentRating: '',  // 'G' | 'PG' | 'T' | 'MA' | Default: ""
+      tagForChildDirectedTreatment: false, // true | false | Default: null
+      tagForUnderAgeOfConsent: false, // true | false | Default: null
+    },
       () => {
         setStatus("SDK Ready! Select an ad format.");
         addLog(">>> AdMob Next Gen Initialized <<<");
@@ -105,6 +103,9 @@ function App() {
       addLog("Native: LOADED"),
     );
   };
+  
+
+  // Complete API method/Event: https://github.com/swaplab-engine/cordova-plugin-admob-nextgen/tree/main/simple-example/www/js
 
   // ================= AD CONTROLS =================
 
@@ -115,8 +116,8 @@ function App() {
       position: 'bottom',       // 'top' or 'bottom'
       size: 'ADAPTIVE',         // 'BANNER', 'LARGE_BANNER', 'MEDIUM_RECTANGLE', 'ADAPTIVE', 'FULL_BANNER', 'LEADERBOARD'
       isOverlapping: false,     // true = Overlay, false = Push Webview
-      collapsible: false,        // true = Enable Collapsible Format (High Revenue)
-      retryInterval: 5000,      // Anti-spam delay (ms)
+      collapsible: false,       // true = Enable Collapsible Format (High Revenue)
+      retryInterval: 5000,      // optional: Anti-spam delay (ms) Disable: 0
       isAutoShow: true
     });
     addLog("Requesting Banner (Push Mode)...");
@@ -132,6 +133,7 @@ function App() {
     window.admobNextGen.createInterstitial({
       adUnitId: "ca-app-pub-3940256099942544/1033173712",
       isAutoShow: false,
+      retryInterval: 5000, // optional: Anti-spam delay (ms) Disable: 0
     });
     addLog("Loading Interstitial...");
   };
@@ -142,6 +144,7 @@ function App() {
     window.admobNextGen.createRewarded({
       adUnitId: "ca-app-pub-3940256099942544/5224354917",
       isAutoShow: false,
+      retryInterval: 5000, // optional: Anti-spam delay (ms) Disable: 0
     });
     addLog("Loading Rewarded...");
   };
@@ -152,6 +155,7 @@ function App() {
     window.admobNextGen.loadAppOpenAd({
       adUnitId: "ca-app-pub-3940256099942544/9257395921",
       isAutoShow: false,
+      retryInterval: 5000, // optional: Anti-spam delay (ms) Disable: 0
     });
     addLog("Loading App Open...");
   };
@@ -165,6 +169,7 @@ function App() {
       adUnitId: "ca-app-pub-3940256099942544/2247696110",
       view: "modal_center",
       isOverlapping: true,
+      retryInterval: 5000, // optional: Anti-spam delay (ms) Disable: 0
     });
     addLog("Requesting Native...");
   };

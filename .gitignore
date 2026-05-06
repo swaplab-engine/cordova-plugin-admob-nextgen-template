@@ -5,6 +5,8 @@
 /server
 /build
 *gradle
+*.gradle
+
 
 # Dependencies
 node_modules
@@ -51,11 +53,6 @@ Thumbs.db
 .yarn/*
 !.yarn/releases
 
-# --- SWAPLAB TEMPLATE SPECIFIC ---
-
-# 1. Ignore Native Platforms
-# We keep the repo clean. These folders will be auto-generated 
-# by the SwapLab Build Engine or when the user runs 'npx cap add android'.
 *android
 android/
 ios/
