@@ -112,6 +112,7 @@ export const AdMobPanel = component$(() => {
       collapsible: false,    // true = Enable Collapsible Format (High Revenue)
       retryInterval: 5000,   // optional: Anti-spam delay (ms) Disable: 0
       isAutoShow: true,
+      isCapacitor: true,
     });
     addLog("Action: Show Banner");
   });
