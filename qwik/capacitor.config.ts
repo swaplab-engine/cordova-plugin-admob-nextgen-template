@@ -7,7 +7,7 @@ const config: CapacitorConfig = {
   plugins: {
     AdMob: {
       APP_ID_ANDROID: "ca-app-pub-3940256099942544~3347511713",
-      NEXT_GEN_SDK_VERSION: "1.0.0",
+      NEXT_GEN_SDK_VERSION: "1.0.1",
       UMP_VERSION: "4.0.0",
       APP_ID_IOS: "ca-app-pub-3940256099942544~1458002511"
     }

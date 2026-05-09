@@ -91,7 +91,7 @@ Follow these steps carefully to initialize the Android platform.
 Install the Capacitor Android core and add the platform folder:
 
 ```bash
-npm install @capacitor/android@7.1.0
+npm install @capacitor/android@8.3.1
 npx cap add android
 ```
 
