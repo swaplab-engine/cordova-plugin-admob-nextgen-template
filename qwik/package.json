@@ -1,8 +1,6 @@
 {
   "name": "my-qwik-empty-starter",
-  "description": "Blank project with routing included",
-  "version": "1.0.2",
-  "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
+  "version": "1.0.3",
   "private": true,
   "type": "module",
   "scripts": {
@@ -36,5 +34,8 @@
     "@capacitor/core": "^8.3.1",
     "@capacitor/ios": "^8.3.1",
     "cordova-plugin-admob-nextgen": "github:swaplab-engine/cordova-plugin-admob-nextgen"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
   }
 }

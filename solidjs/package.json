@@ -1,6 +1,6 @@
 {
   "name": "capacitor-solid-template",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "scripts": {
     "start": "vite",
@@ -19,5 +19,8 @@
     "solid-js": "^1.3.12",
     "vite": "^7.2.4",
     "vite-plugin-solid": "^2.2.6"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
   }
 }
