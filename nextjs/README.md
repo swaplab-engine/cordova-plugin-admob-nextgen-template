@@ -73,7 +73,7 @@ Set `webDir` to **"out"** (since we are using Next.js static export) and add you
   "plugins": {
     "AdMob": {
       "APP_ID_ANDROID": "ca-app-pub-3940256099942544~3347511713",
-      "NEXT_GEN_SDK_VERSION": "1.0.0",
+      "NEXT_GEN_SDK_VERSION": "1.2.0",
       "UMP_VERSION": "4.0.0"
     }
   }
