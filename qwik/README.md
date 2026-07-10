@@ -59,7 +59,7 @@ Set `webDir` to **"dist"** (Qwik's default output) and add your App ID under the
     "AdMob": {
       "APP_ID_ANDROID": "ca-app-pub-3940256099942544~3347511713",
       "APP_ID_IOS": "ca-app-pub-3940256099942544~1458002511",
-      "NEXT_GEN_SDK_VERSION": "1.2.0",
+      "NEXT_GEN_SDK_VERSION": "1.2.1",
       "UMP_VERSION": "4.0.0"
     }
   }
